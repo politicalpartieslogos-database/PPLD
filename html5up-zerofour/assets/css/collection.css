@@ -16,16 +16,10 @@ body.collection-page #main-wrapper .container {
 	width: 1600px !important;
 }
 
-/* Collection page: fix banner title */
+/* Collection page: fix banner */
 body.collection-page #banner {
 	width: 100%;
 	overflow: visible;
-}
-
-body.collection-page #banner h2 {
-	white-space: nowrap;
-	font-size: 1.6em;
-	letter-spacing: 0.04em;
 }
 
 body.collection-page #banner p {
