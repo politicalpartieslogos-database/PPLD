@@ -12,8 +12,8 @@
 
 /* Widen container only in main content area on collection page */
 body.collection-page #main-wrapper .container {
-	max-width: calc(100% - 40px);
-	width: 1600px;
+	max-width: calc(100% - 40px) !important;
+	width: 1600px !important;
 }
 
 /* Collection page: fix banner title wrapping and sidebar */
