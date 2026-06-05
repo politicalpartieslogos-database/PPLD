@@ -33,7 +33,7 @@ for country_dir in sorted(os.listdir(PPLD_ROOT)):
                 'party': party_dir,
                 'year': years[0] if years else 0,
                 'years': years or [],
-                'file': f"/PPLD/PPLD_Public/{country_dir}/{party_dir}/{fn}",
+                'file': f"./PPLD_Public/{country_dir}/{party_dir}/{fn}",
                 'ext': ext[1:]
             })
 
