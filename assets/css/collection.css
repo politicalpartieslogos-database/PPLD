@@ -10,6 +10,12 @@
 	  accent:       #069494
 */
 
+/* Widen container only in main content area on collection page */
+body.collection-page #main-wrapper .container {
+	max-width: calc(100% - 40px);
+	width: 1600px;
+}
+
 /* Collection page: fix banner title wrapping and sidebar */
 body.collection-page #banner h2 {
 	white-space: normal;
