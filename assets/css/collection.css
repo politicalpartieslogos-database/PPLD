@@ -16,10 +16,10 @@ body.collection-page #main-wrapper .container {
 	width: 1600px !important;
 }
 
-/* Collection page: fix banner title wrapping and sidebar */
+/* Collection page: fix banner title */
 body.collection-page #banner h2 {
 	white-space: nowrap;
-	font-size: 2em;
+	font-size: clamp(1em, 2.5vw, 2em);
 }
 
 body.collection-page #banner p {
@@ -93,8 +93,13 @@ body.collection-page #banner p {
 
 /* Make party list NOT independently scroll — sidebar handles it */
 #fl-party {
-	max-height: none;
-	overflow-y: visible;
+	max-height: 5000px;
+	overflow-y: hidden;
+}
+
+#fl-party.collapsed {
+	max-height: 0 !important;
+	padding-bottom: 0;
 }
 
 .filter-header {
