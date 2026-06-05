@@ -10,7 +10,23 @@
 	  accent:       #069494
 */
 
-/* Search Bar */
+/* Widen container only in main content area on collection page */
+body.collection-page #main-wrapper .container {
+	max-width: calc(100% - 40px) !important;
+	width: 1600px !important;
+}
+
+/* Collection page: fix banner title */
+body.collection-page #banner h2 {
+	white-space: nowrap;
+	font-size: clamp(1em, 2.5vw, 2em);
+}
+
+body.collection-page #banner p {
+	font-size: 1em;
+}
+
+
 .collection-search-bar {
 	position: relative;
 	display: flex;
@@ -55,20 +71,37 @@
 #search-clear:hover { color: #0e3a4f; }
 #search-clear.visible { display: block; }
 
-/* Layout */
+/* Collection page: use more screen width */
 .collection-layout {
 	display: flex;
 	gap: 2.5em;
 	align-items: flex-start;
+	max-width: 100%;
 }
 
 /* Sidebar */
 .collection-sidebar {
-	width: 230px;
+	width: 260px;
 	flex-shrink: 0;
 	position: sticky;
 	top: 1.5em;
+	align-self: flex-start;
+	max-height: calc(100vh - 3em);
+	overflow-y: auto;
+	overflow-x: hidden;
 }
+
+/* Make party list NOT independently scroll — sidebar handles it */
+#fl-party {
+	max-height: 5000px;
+	overflow-y: hidden;
+}
+
+#fl-party.collapsed {
+	max-height: 0 !important;
+	padding-bottom: 0;
+}
+
 .filter-header {
 	display: flex;
 	align-items: center;
@@ -128,9 +161,14 @@
 .filter-group-toggle.collapsed .chevron { transform: rotate(-90deg); }
 .filter-list {
 	overflow: hidden;
-	max-height: 1000px;
+	max-height: 5000px;
 	transition: max-height 0.3s ease;
 	padding-bottom: 0.5em;
+}
+
+#fl-party {
+	max-height: none;
+	overflow-y: visible;
 }
 .filter-list.collapsed { max-height: 0; padding-bottom: 0; }
 
