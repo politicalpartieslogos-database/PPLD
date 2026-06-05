@@ -82,5 +82,7 @@ For logos that span multiple election years:
 ## Credits
 
 Template: [ZeroFour by HTML5 UP](https://html5up.net/zerofour) (CCA 3.0)
+
 Logo Data: PPLD Research Project, University of Pittsburgh
+
 Site Creation/Coding: Nishita Jakkam (2026)
