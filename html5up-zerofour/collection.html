@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<!--
+	PPLD Political Logo Library -- Collection Browser
+	Built on ZeroFour by HTML5 UP | html5up.net | @ajlkn
+	Filtering system inspired by the Internet Archive
+-->
+<html>
+	<head>
+		<title>PPLD Collection Browser</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/collection.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<div id="header-wrapper">
+				<div class="container">
+					<header id="header">
+						<div class="inner">
+							<h1><a href="index.html" id="logo">PPLD</a></h1>
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li class="current_page_item"><a href="collection.html">Collection</a></li>
+									<li><a href="left-sidebar.html">About &amp; Research</a></li>
+								</ul>
+							</nav>
+						</div>
+					</header>
+
+					<!-- Banner -->
+					<div id="banner">
+						<h2>Political Logo Collection Browser</h2>
+						<p>Browse and filter logos from 18 European countries across decades of political history.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Main -->
+			<div id="main-wrapper">
+				<div class="wrapper style1">
+					<div class="inner">
+						<div class="container">
+
+							<!-- Search Bar -->
+							<div class="collection-search-bar">
+								<span class="icon solid fa-search"></span>
+								<input type="text" id="search-input" placeholder="Search by country, party, or year..." autocomplete="off" />
+								<button id="search-clear" title="Clear search">&#x2715;</button>
+							</div>
+
+							<div class="collection-layout">
+
+								<!-- LEFT SIDEBAR: FILTERS -->
+								<aside class="collection-sidebar">
+
+									<div class="filter-header">
+										<span class="icon solid fa-sliders-h"></span> Filter Results
+										<button id="clear-all-btn" title="Reset all filters">Reset</button>
+									</div>
+
+									<!-- Country -->
+									<div class="filter-group" id="fg-country">
+										<div class="filter-group-toggle" data-target="fl-country">
+											<span class="icon solid fa-globe-europe"></span> Country
+											<span class="chevron icon solid fa-chevron-down"></span>
+										</div>
+										<div class="filter-list open" id="fl-country"></div>
+									</div>
+
+									<!-- Party -->
+									<div class="filter-group" id="fg-party">
+										<div class="filter-group-toggle" data-target="fl-party">
+											<span class="icon solid fa-flag"></span> Party
+											<span class="chevron icon solid fa-chevron-down"></span>
+										</div>
+										<div class="filter-list open" id="fl-party"></div>
+									</div>
+
+									<!-- Year Range -->
+									<div class="filter-group" id="fg-year">
+										<div class="filter-group-toggle" data-target="fl-year">
+											<span class="icon solid fa-calendar-alt"></span> Year Range
+											<span class="chevron icon solid fa-chevron-down"></span>
+										</div>
+										<div class="filter-list open" id="fl-year">
+											<div class="year-range-wrap">
+												<div class="year-display">
+													<span id="year-from-label">1980</span>
+													<span>&ndash;</span>
+													<span id="year-to-label">2024</span>
+												</div>
+												<div class="dual-range-wrap">
+													<input type="range" id="year-from" min="1980" max="2024" value="1980" step="1" />
+													<input type="range" id="year-to"   min="1980" max="2024" value="2024" step="1" />
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- File Type -->
+									<div class="filter-group" id="fg-type">
+										<div class="filter-group-toggle" data-target="fl-type">
+											<span class="icon solid fa-file-image"></span> File Type
+											<span class="chevron icon solid fa-chevron-down"></span>
+										</div>
+										<div class="filter-list open" id="fl-type">
+											<label class="filter-check">
+												<input type="checkbox" class="type-check" value="png" checked /> PNG
+											</label>
+											<label class="filter-check">
+												<input type="checkbox" class="type-check" value="jpg" checked /> JPG
+											</label>
+											<label class="filter-check">
+												<input type="checkbox" class="type-check" value="svg" checked /> SVG
+											</label>
+										</div>
+									</div>
+
+								</aside>
+
+								<!-- MAIN CONTENT: RESULTS -->
+								<main class="collection-main">
+
+									<!-- Toolbar -->
+									<div class="results-toolbar">
+										<span id="results-count">Loading...</span>
+										<div class="toolbar-right">
+											<label for="sort-select">Sort:</label>
+											<select id="sort-select">
+												<option value="year-asc">Year: Oldest first</option>
+												<option value="year-desc">Year: Newest first</option>
+												<option value="country-asc">Country A-Z</option>
+												<option value="party-asc">Party A-Z</option>
+											</select>
+											<button id="view-grid" class="view-btn active" title="Grid view"><span class="icon solid fa-th"></span></button>
+											<button id="view-list" class="view-btn" title="List view"><span class="icon solid fa-list"></span></button>
+										</div>
+									</div>
+
+									<!-- Active filter tags -->
+									<div id="active-tags" class="active-tags"></div>
+
+									<!-- Grid -->
+									<div id="logo-grid" class="logo-grid"></div>
+
+									<!-- Empty state -->
+									<div id="empty-state" class="empty-state" style="display:none;">
+										<span class="icon solid fa-search fa-3x"></span>
+										<p>No logos match your current filters.</p>
+										<button id="empty-reset">Reset filters</button>
+									</div>
+
+								</main>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Lightbox -->
+			<div id="lightbox" class="lightbox" style="display:none;" role="dialog" aria-modal="true">
+				<div class="lightbox-backdrop"></div>
+				<div class="lightbox-panel">
+					<button class="lightbox-close" id="lb-close">&times;</button>
+					<div class="lightbox-img-wrap">
+						<img id="lb-img" src="" alt="" />
+					</div>
+					<div class="lightbox-meta">
+						<h3 id="lb-party"></h3>
+						<div class="lb-details">
+							<span id="lb-country" class="lb-tag"><span class="icon solid fa-globe-europe"></span> </span>
+							<span id="lb-year"    class="lb-tag"><span class="icon solid fa-calendar-alt"></span> </span>
+							<span id="lb-ext"     class="lb-tag"><span class="icon solid fa-file-image"></span> </span>
+						</div>
+						<a id="lb-download" href="#" download class="button alt icon solid fa-download">Download</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<div id="footer-wrapper">
+				<footer id="footer" class="container">
+					<div class="row">
+						<div class="col-6 col-12-medium">
+							<section>
+								<h2>PPLD Political Party Logo Database</h2>
+								<p>A research archive of political party logos from 18 European countries spanning from 1980 to the present day. Logos are sourced from publicly available materials and are catalogued for academic research purposes.</p>
+							</section>
+						</div>
+						<div class="col-3 col-6-medium col-12-small">
+							<section>
+								<h2>Browse by Country</h2>
+								<ul class="divided" id="footer-countries"></ul>
+							</section>
+						</div>
+						<div class="col-3 col-6-medium col-12-small">
+							<section>
+								<h2>Quick Links</h2>
+								<ul class="divided">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="left-sidebar.html">About &amp; Research</a></li>
+								</ul>
+							</section>
+						</div>
+						<div class="col-12">
+							<div id="copyright">
+								<ul class="menu">
+									<li>&copy; PPLD</li>
+									<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									<li style="opacity:0.45; font-size:0.85em;">Site by Nishita Jakkam</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/data.js"></script>
+		<script src="assets/js/collection.js"></script>
+
+	</body>
+</html>
