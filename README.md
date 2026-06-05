@@ -62,35 +62,6 @@ For logos that span multiple election years:
 
 ---
 
-## Deploying to GitHub Pages
-
-**Step 1 - Create a repository**
-
-Go to [github.com](https://github.com), create a new public repository.
-
-**Step 2 - Push your files**
-
-Push the entire `RESEARCH` folder so both `html5up-zerofour/` and `PPLD_Public/` are at the root:
-
-```bash
-cd ~/Desktop/RESEARCH
-
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
-```
-
-**Step 3 - Enable GitHub Pages**
-
-In your repository go to Settings > Pages. Set source to `main` branch, `/ (root)` folder. Save.
-
-Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO/html5up-zerofour/`
-
----
-
 ## Filter Features
 
 | Feature      | Description                                         |
