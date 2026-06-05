@@ -28,6 +28,9 @@ for country_dir in sorted(os.listdir(PPLD_ROOT)):
             ext = os.path.splitext(fn)[1].lower()
             if ext not in IMAGE_EXTS or fn.startswith('.'): continue
             years = YEAR_OVERRIDES.get(fn) or extract_years(fn)
+            # Skip logos with no years or all years before 1980
+            if years and max(years) < 1980:
+                continue
             entries.append({
                 'country': country_dir,
                 'party': party_dir,

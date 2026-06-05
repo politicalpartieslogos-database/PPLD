@@ -18,8 +18,12 @@ body.collection-page #main-wrapper .container {
 
 /* Collection page: fix banner title wrapping and sidebar */
 body.collection-page #banner h2 {
-	white-space: normal;
-	font-size: 1.8em;
+	white-space: nowrap;
+	font-size: 2em;
+}
+
+body.collection-page #banner p {
+	font-size: 1em;
 }
 
 
