@@ -10,12 +10,6 @@
 	  accent:       #069494
 */
 
-/* Widen container only on collection page */
-body.collection-page #main-wrapper .container {
-	max-width: calc(100% - 40px);
-	width: 1600px;
-}
-
 /* Search Bar */
 .collection-search-bar {
 	position: relative;
@@ -75,9 +69,7 @@ body.collection-page #main-wrapper .container {
 	flex-shrink: 0;
 	position: sticky;
 	top: 1.5em;
-	max-height: calc(100vh - 3em);
-	overflow-y: auto;
-	padding-right: 0.5em;
+	align-self: flex-start;
 }
 .filter-header {
 	display: flex;
@@ -137,10 +129,16 @@ body.collection-page #main-wrapper .container {
 }
 .filter-group-toggle.collapsed .chevron { transform: rotate(-90deg); }
 .filter-list {
-	overflow: visible;
+	overflow: hidden;
 	max-height: 5000px;
 	transition: max-height 0.3s ease;
 	padding-bottom: 0.5em;
+}
+
+#fl-party {
+	max-height: 300px;
+	overflow-y: auto;
+	padding-right: 0.25em;
 }
 .filter-list.collapsed { max-height: 0; padding-bottom: 0; }
 
