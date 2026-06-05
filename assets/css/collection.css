@@ -17,6 +17,10 @@ body.collection-page #main-wrapper .container {
 }
 
 /* Collection page: fix banner title */
+body.collection-page #banner {
+	width: 100%;
+}
+
 body.collection-page #banner h2 {
 	white-space: nowrap;
 	font-size: clamp(1em, 2.5vw, 2em);
