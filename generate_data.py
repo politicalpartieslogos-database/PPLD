@@ -2,7 +2,7 @@ import os, re, json
 
 PPLD_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "PPLD_Public")
 OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                      "html5up-zerofour", "assets", "js", "data.js")
+                      "assets", "js", "data.js")
 IMAGE_EXTS = {'.png', '.jpg', '.jpeg', '.svg', '.gif', '.webp'}
 YEAR_OVERRIDES = {
     "Labour 70s.png": [1970],
