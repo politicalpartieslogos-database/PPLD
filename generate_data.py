@@ -12,6 +12,17 @@ YEAR_OVERRIDES = {
     "Untitled.png": [2018],
 }
 
+def title_case(name):
+    minor = {'a','an','the','and','or','but','of','in','on','at','to','for','with','by','from'}
+    words = name.split()
+    result = []
+    for i, w in enumerate(words):
+        if i == 0 or w.lower() not in minor:
+            result.append(w.capitalize())
+        else:
+            result.append(w.lower())
+    return ' '.join(result)
+
 def extract_years(filename):
     name = os.path.splitext(filename)[0]
     found = re.findall(r'(?<!\d)(1[89]\d\d|20\d\d)(?!\d)', name)
@@ -33,7 +44,7 @@ for country_dir in sorted(os.listdir(PPLD_ROOT)):
                 continue
             entries.append({
                 'country': country_dir,
-                'party': party_dir,
+                'party': title_case(party_dir),
                 'year': years[0] if years else 0,
                 'years': years or [],
                 'file': f"./PPLD_Public/{country_dir}/{party_dir}/{fn}",
