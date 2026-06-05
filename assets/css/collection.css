@@ -68,6 +68,8 @@
 	flex-shrink: 0;
 	position: sticky;
 	top: 1.5em;
+	max-height: calc(100vh - 3em);
+	overflow-y: auto;
 }
 .filter-header {
 	display: flex;
