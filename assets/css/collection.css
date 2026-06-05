@@ -10,8 +10,8 @@
 	  accent:       #069494
 */
 
-/* Widen container on collection page */
-#main-wrapper .wrapper .inner .container {
+/* Widen container only on collection page */
+body.collection-page #main-wrapper .container {
 	max-width: calc(100% - 40px);
 	width: 1600px;
 }
