@@ -10,6 +10,12 @@
 	  accent:       #069494
 */
 
+/* Widen container on collection page */
+#main-wrapper .wrapper .inner .container {
+	max-width: calc(100% - 40px);
+	width: 1600px;
+}
+
 /* Search Bar */
 .collection-search-bar {
 	position: relative;
@@ -55,21 +61,23 @@
 #search-clear:hover { color: #0e3a4f; }
 #search-clear.visible { display: block; }
 
-/* Layout */
+/* Collection page: use more screen width */
 .collection-layout {
 	display: flex;
 	gap: 2.5em;
 	align-items: flex-start;
+	max-width: 100%;
 }
 
 /* Sidebar */
 .collection-sidebar {
-	width: 230px;
+	width: 260px;
 	flex-shrink: 0;
 	position: sticky;
 	top: 1.5em;
 	max-height: calc(100vh - 3em);
 	overflow-y: auto;
+	padding-right: 0.5em;
 }
 .filter-header {
 	display: flex;
@@ -129,7 +137,7 @@
 }
 .filter-group-toggle.collapsed .chevron { transform: rotate(-90deg); }
 .filter-list {
-	overflow: hidden;
+	overflow: visible;
 	max-height: 5000px;
 	transition: max-height 0.3s ease;
 	padding-bottom: 0.5em;
