@@ -12,12 +12,30 @@ YEAR_OVERRIDES = {
     "Untitled.png": [2018],
 }
 
+# Abbreviations that must stay fully uppercase in the party filter
+ABBREVIATIONS = {
+    'BZO', 'CD', 'CDS', 'DF', 'DKP', 'FPO',
+    'KFP', 'KKE', 'KPO', 'NEOS', 'OVP', 'PASOK', 'PCP', 'PS',
+    'PSD', 'PVDA', 'SD', 'SF', 'SPO', 'UDC', 'UMP',
+}
+# Full folder-name overrides (matched before title_case word-splitting)
+NAME_OVERRIDES = {
+    'CDU.CSU': 'CDU/CSU',
+    'FDP.The Liberals': 'FDP.The Liberals',
+}
+
 def title_case(name):
+    # Check for full-name overrides first
+    if name in NAME_OVERRIDES:
+        return NAME_OVERRIDES[name]
     minor = {'a','an','the','and','or','but','of','in','on','at','to','for','with','by','from'}
     words = name.split()
     result = []
     for i, w in enumerate(words):
-        if i == 0 or w.lower() not in minor:
+        # Preserve known abbreviations as all-caps
+        if w.upper() in ABBREVIATIONS:
+            result.append(w.upper())
+        elif i == 0 or w.lower() not in minor:
             result.append(w.capitalize())
         else:
             result.append(w.lower())
